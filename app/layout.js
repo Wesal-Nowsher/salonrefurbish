@@ -14,7 +14,7 @@ export const metadata = {
   description:
     "Secrets Beauty Salon, Main Street, Haltwhistle: Eneka PRO laser hair removal, nails, lash lifts, brows, NanoSure facials, tattoo removal and more. Book a consultation.",
   icons: { icon: "/images/secrets-salon/logo-640.webp" },
-  openGraph: { type: "website", locale: "en_GB", siteName: salon.name, images: [{ url: "/images/secrets-salon/logo.png", alt: salon.name }] },
+  openGraph: { type: "website", locale: "en_GB", siteName: salon.name, images: [{ url: "/images/secrets-salon/og.jpg", width: 1200, height: 630, alt: `${salon.name}, Haltwhistle` }] },
   twitter: { card: "summary_large_image" },
   robots: { index: true, follow: true },
 };
