@@ -10,7 +10,19 @@ export function Shell({ children }) {
     <>
       <a href="#main" className="skip">Skip to content</a>
       <header className="pill-nav">
-        <Link href={v2("/#menu")}>Treatments</Link>
+        <div className="dd">
+          <Link href={v2("/#menu")} aria-haspopup="true" className="dd-btn">
+            Treatments <svg className="chev" viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 4.5 6 8l3.5-3.5" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" /></svg>
+          </Link>
+          <div className="dd-panel">
+            {treatments.map((t) => (
+              <Link key={t.slug} href={v2(`/treatments/${t.slug}`)}>
+                <img src={img(`t-${t.slug}.webp`)} alt="" width="44" height="44" loading="lazy" />
+                <span><strong>{t.title}</strong><small>{t.short}</small></span>
+              </Link>
+            ))}
+          </div>
+        </div>
         <Link href={v2("/#laser")} className="hide-s">Laser</Link>
         <Link href={v2()} className="pill-logo" aria-label={`${salon.name} home`}>
           <img src={img("logo-640.webp")} alt={salon.name} width="640" height="390" />

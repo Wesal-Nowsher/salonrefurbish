@@ -20,7 +20,7 @@ export default function Nav() {
     <header className={`nav ${scrolled ? "scrolled" : ""} ${open ? "open" : ""}`}>
       <nav className="nav-side" aria-label="Treatments">
         <div className="mega">
-          <button aria-haspopup="true">Treatments</button>
+          <button aria-haspopup="true">Treatments <svg className="chev" viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 4.5 6 8l3.5-3.5" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" /></svg></button>
           <div className="mega-panel">
             {treatments.map((t, i) => (
               <Link key={t.slug} href={href(`/treatments/${t.slug}`)}>

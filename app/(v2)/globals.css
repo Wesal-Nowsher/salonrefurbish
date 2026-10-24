@@ -44,6 +44,20 @@ h1 em, h2 em { color: var(--rose-deep); }
 .pill-nav > a:not(.pill-logo):not(.pill-cta):hover { color: var(--rose-deep); }
 .pill-logo { flex: none; }
 .pill-logo img { width: 92px; height: auto; margin: -6px 0.4rem; }
+.dd { position: relative; }
+.dd-btn { display: inline-flex; align-items: center; gap: 0.35rem; text-decoration: none; }
+.dd:hover .dd-btn, .dd:focus-within .dd-btn { color: var(--rose-deep); }
+.chev { width: 12px; height: 12px; transition: transform 0.35s; }
+.dd:hover .chev, .dd:focus-within .chev { transform: rotate(180deg); }
+.dd::after { content: ""; position: absolute; left: -20px; right: -20px; top: 100%; height: 26px; }
+.dd-panel { position: absolute; top: calc(100% + 22px); left: -1.5rem; width: 560px; display: grid; grid-template-columns: 1fr 1fr; gap: 4px; padding: 10px; background: var(--white); border-radius: 28px; box-shadow: 0 30px 60px -20px rgba(143, 47, 72, 0.45); white-space: normal; opacity: 0; visibility: hidden; transform: translateY(10px) scale(0.98); transform-origin: top left; transition: 0.3s cubic-bezier(.2, .8, .2, 1); }
+.dd:hover .dd-panel, .dd:focus-within .dd-panel { opacity: 1; visibility: visible; transform: none; }
+.dd-panel a { display: flex; gap: 0.8rem; align-items: center; padding: 0.6rem; border-radius: 20px; text-decoration: none; transition: background 0.25s; }
+.dd-panel a:hover { background: var(--petal); }
+.dd-panel img { width: 44px; height: 44px; border-radius: 14px; object-fit: cover; flex: none; }
+.dd-panel strong { display: block; font-family: var(--display); font-weight: 400; font-size: 1.2rem; line-height: 1.1; }
+.dd-panel small { display: block; font-size: 0.75rem; color: #8d6b74; line-height: 1.35; }
+.dd-panel a:hover strong { color: var(--rose-deep); }
 .pill-cta { background: var(--rose-deep); color: #fff; padding: 0.7rem 1.4rem; border-radius: 99px; }
 .pill-cta:hover { background: var(--berry); }
 .social { display: inline-flex; gap: 0.8rem; align-items: center; }
@@ -211,6 +225,7 @@ h1 em, h2 em { color: var(--rose-deep); }
 
 @media (max-width: 900px) {
   .hide-s { display: none; }
+  .dd-panel { display: none; }
   .pill-nav { gap: 0.9rem; padding-left: 1.1rem; font-size: 0.85rem; }
   .pill-logo img { width: 76px; }
   .v2-hero, .v2-laser, .v2-gram, .t2-hero, .v2-contact { grid-template-columns: 1fr; }
