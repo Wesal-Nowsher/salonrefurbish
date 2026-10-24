@@ -1,4 +1,5 @@
 import { Shell, Kicker, Rose } from "@/components/secrets/ui";
+import Social from "@/components/secrets/Social";
 import EnquiryForm from "@/components/secrets/EnquiryForm";
 import { JsonLd, businessSchema, crumbs } from "@/components/secrets/schema";
 import { salon, fullAddress, abs, enquiryOptions } from "@/components/secrets/site";
@@ -28,6 +29,7 @@ export default async function Contact({ searchParams }) {
             <a href={`tel:${salon.phone}`} className="big-link">{salon.phoneDisplay}</a>
             <h2>Message us</h2>
             <a href={salon.instagram} target="_blank" rel="noopener" className="big-link">{salon.instagramHandle}</a>
+            <Social labels />
             <h2>Find us</h2>
             <address>{salon.legalName}<br />{fullAddress}</address>
             {salon.hours ? null : <p className="small"><Rose /> By appointment. Opening times on request.</p>}

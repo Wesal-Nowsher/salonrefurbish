@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { salon, href, treatments, fullAddress } from "./site";
 import Nav from "./Nav";
+import Social from "./Social";
 
 // The scalloped badge outline from the logo, reused as the site's frame shape.
 export function BadgeDefs() {
@@ -53,7 +54,7 @@ export function Shell({ children }) {
         <span>{salon.address.town}, {salon.address.county}</span>
         <span className="topbar-r">
           <a href={`tel:${salon.phone}`}>{salon.phoneDisplay}</a>
-          <a href={salon.instagram} target="_blank" rel="noopener">Instagram</a>
+          <Social />
         </span>
       </div>
       <Nav />
@@ -72,6 +73,10 @@ function Footer() {
         <p className="footer-line">
           A private little world on Main Street, <em>for skin, nails &amp; lashes.</em>
         </p>
+        <div className="footer-social">
+          <p>Follow the secrets</p>
+          <Social labels />
+        </div>
       </div>
       <div className="footer-cols">
         <div>
@@ -89,8 +94,6 @@ function Footer() {
           <h3>Salon</h3>
           <Link href={href("/prices")}>Prices</Link>
           <Link href={href("/contact")}>Contact &amp; booking</Link>
-          <a href={salon.instagram} target="_blank" rel="noopener">Instagram {salon.instagramHandle}</a>
-          {salon.facebook && <a href={salon.facebook} target="_blank" rel="noopener">Facebook</a>}
           <Link href={href("/privacy")}>Privacy policy</Link>
         </div>
       </div>

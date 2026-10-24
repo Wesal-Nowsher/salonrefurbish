@@ -3,6 +3,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import { href, treatments, salon } from "./site";
+import Social from "./Social";
 
 export default function Nav() {
   const [open, setOpen] = useState(false);
@@ -35,7 +36,7 @@ export default function Nav() {
         <img src="/images/secrets-salon/logo-640.webp" alt={salon.name} width="640" height="390" />
       </Link>
       <nav className="nav-side right" aria-label="Salon">
-        <a href={salon.instagram} target="_blank" rel="noopener">Instagram</a>
+        <Social />
         <Link href={href("/contact")}>Contact</Link>
         <Link href={href("/contact")} className="btn gold small">Reserve</Link>
       </nav>
@@ -49,6 +50,7 @@ export default function Nav() {
         <Link href={href("/prices")}>Prices</Link>
         <Link href={href("/contact")}>Contact &amp; booking</Link>
         <a href={`tel:${salon.phone}`} className="btn gold">Call {salon.phoneDisplay}</a>
+        <Social labels className="drawer-social" />
       </div>
     </header>
   );

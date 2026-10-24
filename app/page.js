@@ -120,7 +120,10 @@ export default function Home() {
         <div className="gram-head">
           <p className="gram-quote">&ldquo;Maximum fluff, <em>zero apologies.</em>&rdquo;</p>
           <p>{salon.instagramStats.posts} posts of fresh sets, lifts and glow-ups. New appointments are posted every week.</p>
-          <a href={salon.instagram} className="btn line" target="_blank" rel="noopener">Follow {salon.instagramHandle}</a>
+          <div className="btns center">
+            <a href={salon.instagram} className="btn gold" target="_blank" rel="noopener">Instagram {salon.instagramHandle}</a>
+            <a href={salon.facebook} className="btn line" target="_blank" rel="noopener">Facebook: Secrets Salon Ltd</a>
+          </div>
         </div>
         <div className="gram-row">
           {[1, 2, 3, 4, 5].map((n) => (
