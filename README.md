@@ -14,3 +14,10 @@ npm run build
 - Enquiry form posts to `/api/secrets-enquiry` (hook it up to email or a booking system).
 
 Deploy on Vercel with default settings.
+
+## Designs
+
+- `/` - v1: porcelain and gold, badge-shaped frames (files in `app/(v1)/`).
+- `/v2` - v2: pink-led, rounded bento grid, "book in three taps" chooser (files in `app/(v2)/`).
+
+Both share the same content (`components/secrets/site.js`) and images. v2 pages point their canonical URL at the matching v1 page so search engines don't see duplicate content.
