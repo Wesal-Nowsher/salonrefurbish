@@ -1,4 +1,5 @@
 import Link from "next/link";
+import DmButton from "@/components/secrets/DmButton";
 import { notFound } from "next/navigation";
 import { Shell, Pic, Faq, v2 } from "@/components/v2/ui";
 import { JsonLd, businessSchema, faqSchema, salonId } from "@/components/secrets/schema";
@@ -33,8 +34,8 @@ export default async function V2Treatment({ params }) {
           <h1>{t.title}</h1>
           <p className="hero-sub">{t.intro}</p>
           <div className="row">
-            <Link href={`${v2("/contact")}?interest=${encodeURIComponent(t.title)}`} className="b-rose">Book this</Link>
-            <a href={`tel:${salon.phone}`} className="b-ghost">{salon.phoneDisplay}</a>
+            <Link href={`${v2("/contact")}?interest=${encodeURIComponent(t.title)}#form`} className="b-rose">Book this</Link>
+            <DmButton className="b-ig" />
           </div>
         </div>
         <Pic name={`t-${t.slug}.webp`} alt={`${t.title} at ${salon.name}, Haltwhistle`} className="t2-pic" />

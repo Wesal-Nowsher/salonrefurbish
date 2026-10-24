@@ -3,7 +3,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { enquiryOptions, salon } from "@/components/secrets/site";
 
-// "Book in three taps": pick a treatment and a time, then choose how to send it.
+// "Book in three taps": pick a treatment and a time, then go to the pre-filled booking form.
 export default function Booker() {
   const [what, setWhat] = useState(null);
   const [when, setWhen] = useState(null);
@@ -31,12 +31,18 @@ export default function Booker() {
       </div>
       <div className={`step send ${ready ? "on" : ""}`}>
         <span className="step-n">3</span>
-        <p>{ready ? <>{what}, {when.toLowerCase()}. Lovely. Send it via&hellip;</> : "Pick a treatment and a time"}</p>
-        <div className="chips">
-          <Link className="go" aria-disabled={!ready} href={ready ? `/v2/contact?interest=${encodeURIComponent(what)}&time=${when}` : "#book"}>Enquiry form</Link>
-          <a className="go" href={salon.instagram} target="_blank" rel="noopener">Instagram DM</a>
-          <a className="go" href={`tel:${salon.phone}`}>Call {salon.phoneDisplay}</a>
-        </div>
+        <p>{ready ? <>{what}, {when.toLowerCase()}. Lovely.</> : "Pick a treatment and a time"}</p>
+        <Link
+          className="book-go"
+          aria-disabled={!ready}
+          tabIndex={ready ? undefined : -1}
+          href={ready ? `/v2/contact?interest=${encodeURIComponent(what)}&time=${when}#form` : "#book"}
+        >
+          Tap to book →
+        </Link>
+        <p className="or">
+          or <a href={salon.instagramDm} target="_blank" rel="noopener">DM us on Instagram</a> · <a href={`tel:${salon.phone}`}>call {salon.phoneDisplay}</a>
+        </p>
       </div>
     </div>
   );

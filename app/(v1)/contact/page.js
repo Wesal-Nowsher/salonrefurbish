@@ -2,7 +2,7 @@ import { Shell, Kicker, Rose } from "@/components/secrets/ui";
 import Social from "@/components/secrets/Social";
 import EnquiryForm from "@/components/secrets/EnquiryForm";
 import { JsonLd, businessSchema, crumbs } from "@/components/secrets/schema";
-import { salon, fullAddress, abs, enquiryOptions } from "@/components/secrets/site";
+import { salon, fullAddress, abs, matchInterest } from "@/components/secrets/site";
 
 export const metadata = {
   title: "Contact & Book | Secrets Beauty Salon, Main Street, Haltwhistle",
@@ -12,7 +12,8 @@ export const metadata = {
 
 export default async function Contact({ searchParams }) {
   const wanted = (await searchParams)?.interest;
-  const preset = enquiryOptions.find((o) => wanted && wanted.toLowerCase().includes(o.toLowerCase().split(" ")[0]));
+  const preset = matchInterest(wanted);
+  const time = (await searchParams)?.time;
   return (
     <Shell>
       <JsonLd graph={[businessSchema(), crumbs([["Home", ""], ["Contact", "/contact"]])]} />
@@ -22,13 +23,14 @@ export default async function Contact({ searchParams }) {
         <p className="lede">For more information or to book a consultation, send us a note. We read every one personally.</p>
       </section>
       <section className="sect contact">
-        <EnquiryForm preset={preset} />
+        <EnquiryForm preset={preset} time={time} />
         <aside>
           <div className="contact-card">
             <h2>Call us</h2>
             <a href={`tel:${salon.phone}`} className="big-link">{salon.phoneDisplay}</a>
-            <h2>Message us</h2>
-            <a href={salon.instagram} target="_blank" rel="noopener" className="big-link">{salon.instagramHandle}</a>
+            <h2>DM to book</h2>
+            <a href={salon.instagramDm} target="_blank" rel="noopener" className="big-link">{salon.instagramHandle}</a>
+            <p className="small">The quickest reply. New slots are posted every week.</p>
             <Social labels />
             <h2>Find us</h2>
             <address>{salon.legalName}<br />{fullAddress}</address>

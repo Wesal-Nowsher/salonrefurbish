@@ -1,4 +1,5 @@
 import Link from "next/link";
+import DmButton from "@/components/secrets/DmButton";
 import { notFound } from "next/navigation";
 import { Shell, Photo, Rose, Kicker, FaqList, Cta } from "@/components/secrets/ui";
 import { JsonLd, businessSchema, faqSchema, crumbs, salonId } from "@/components/secrets/schema";
@@ -43,8 +44,8 @@ export default async function Treatment({ params }) {
             <h1>{t.title.split(" ").slice(0, -1).join(" ")} <em>{t.title.split(" ").slice(-1)}</em></h1>
             <p className="lede">{t.intro}</p>
             <div className="btns">
-              <Link href={`${href("/contact")}?interest=${encodeURIComponent(t.title)}`} className="btn gold">Book a consultation</Link>
-              <a href={`tel:${salon.phone}`} className="btn line">{salon.phoneDisplay}</a>
+              <Link href={`${href("/contact")}?interest=${encodeURIComponent(t.title)}#form`} className="btn gold">Book a consultation</Link>
+              <DmButton className="btn ig" />
             </div>
           </div>
           <div className="badge-frame tall">

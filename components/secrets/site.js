@@ -12,6 +12,7 @@ export const salon = {
   phoneDisplay: "01434 322 100",
   instagram: "https://www.instagram.com/secrets_salon_ltd/",
   instagramHandle: "@secrets_salon_ltd",
+  instagramDm: "https://ig.me/m/secrets_salon_ltd", // opens a DM to the salon in the Instagram app
   facebook: "https://www.facebook.com/people/Secrets-Salon-ltd/100060822563649/",
   address: { street: "Main Street", town: "Haltwhistle", county: "Northumberland", postcode: "NE49 9AE", country: "GB" },
   geo: { lat: 54.9707, lng: -2.4597 },
@@ -172,3 +173,10 @@ export const homeFaqs = [
   ["How do I book at Secrets Beauty Salon?", `Call ${salon.phoneDisplay}, send a message on Instagram (${salon.instagramHandle}) or Facebook (Secrets Salon Ltd) or use the enquiry form on our contact page. Laser, skin and tattoo treatments start with a consultation.`],
   ["Does laser hair removal work on all skin types?", "Yes. The Eneka PRO diode laser treats all skin types and phototypes thanks to its 4000W power, large spot size and multiple wavelengths."],
 ];
+
+// Map a treatment name from a link (?interest=...) to an enquiry-form option.
+export function matchInterest(wanted) {
+  if (!wanted) return undefined;
+  const w = wanted.toLowerCase();
+  return enquiryOptions.find((o) => w.includes(o.toLowerCase())) || enquiryOptions.find((o) => w.includes(o.toLowerCase().split(" ")[0]));
+}

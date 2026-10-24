@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { salon, treatments, fullAddress } from "@/components/secrets/site";
 import Social from "@/components/secrets/Social";
+import DmButton from "@/components/secrets/DmButton";
 
 export const v2 = (p = "") => `/v2${p}`;
 export const img = (name) => `/images/secrets-salon/${name}`;
@@ -28,9 +29,10 @@ export function Shell({ children }) {
           <img src={img("logo-640.webp")} alt={salon.name} width="640" height="390" />
         </Link>
         <Social className="hide-s" />
-        <Link href={v2("/contact")} className="pill-cta">Book</Link>
+        <Link href={v2("/contact#form")} className="pill-cta">Book</Link>
       </header>
       <main id="main">{children}</main>
+      <DmButton className="dm-float" />
       <footer className="v2-foot">
         <p className="foot-big">psst<em>...</em> it&apos;s on Main Street.</p>
         <div className="foot-grid">

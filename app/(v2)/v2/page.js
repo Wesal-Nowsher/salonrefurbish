@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Shell, Pic, Faq, v2 } from "@/components/v2/ui";
+import DmButton from "@/components/secrets/DmButton";
 import Booker from "@/components/v2/Booker";
 import LaserSwitch from "@/components/v2/LaserSwitch";
 import { JsonLd, businessSchema, faqSchema } from "@/components/secrets/schema";
@@ -27,7 +28,7 @@ export default function V2Home() {
           <p className="hero-sub">Medical-grade laser, lashes, brows, skin and the prettiest nail sets in Northumberland, all in one pink little salon on Main Street.</p>
           <div className="row">
             <Link href={v2("/#book")} className="b-rose">Book in 3 taps</Link>
-            <a href={salon.instagram} target="_blank" rel="noopener" className="b-ghost">See the sets ↗</a>
+            <DmButton className="b-ig" />
           </div>
         </div>
         <div className="fan" aria-hidden="true">
@@ -91,7 +92,8 @@ export default function V2Home() {
           <h2>Maximum fluff,<br /><em>zero apologies.</em></h2>
           <p>{salon.instagramStats.posts} posts of fresh sets and lash lifts. New slots with Nat and Kerry drop every week.</p>
           <div className="row">
-            <a href={salon.instagram} target="_blank" rel="noopener" className="b-rose">Instagram</a>
+            <DmButton className="b-ig" />
+            <a href={salon.instagram} target="_blank" rel="noopener" className="b-ghost">See the sets</a>
             <a href={salon.facebook} target="_blank" rel="noopener" className="b-ghost">Facebook</a>
           </div>
         </div>
@@ -114,7 +116,8 @@ export default function V2Home() {
       <section className="v2-final">
         <h2>Your secret&apos;s <em>safe with us.</em></h2>
         <div className="row center">
-          <Link href={v2("/contact")} className="b-white">Book a consultation</Link>
+          <Link href={v2("/contact#form")} className="b-white">Book a consultation</Link>
+          <DmButton className="b-ig light" />
           <a href={`tel:${salon.phone}`} className="b-ghost light">{salon.phoneDisplay}</a>
         </div>
       </section>

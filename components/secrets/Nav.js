@@ -38,7 +38,7 @@ export default function Nav() {
       <nav className="nav-side right" aria-label="Salon">
         <Social />
         <Link href={href("/contact")}>Contact</Link>
-        <Link href={href("/contact")} className="btn gold small">Reserve</Link>
+        <Link href={href("/contact#form")} className="btn gold small">Reserve</Link>
       </nav>
       <button className="burger" aria-expanded={open} aria-label="Menu" onClick={() => setOpen(!open)}>
         <span /><span />
@@ -49,7 +49,9 @@ export default function Nav() {
         ))}
         <Link href={href("/prices")}>Prices</Link>
         <Link href={href("/contact")}>Contact &amp; booking</Link>
-        <a href={`tel:${salon.phone}`} className="btn gold">Call {salon.phoneDisplay}</a>
+        <Link href={href("/contact#form")} className="btn gold">Book a consultation</Link>
+        <a href={salon.instagramDm} target="_blank" rel="noopener" className="btn ig">DM to book on Instagram</a>
+        <a href={`tel:${salon.phone}`} className="btn line">Call {salon.phoneDisplay}</a>
         <Social labels className="drawer-social" />
       </div>
     </header>

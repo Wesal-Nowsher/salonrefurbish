@@ -191,8 +191,6 @@ h1 em, h2 em, h3 em { font-style: italic; color: var(--gold); }
 .footer-cols a, .footer-cols address { display: block; text-decoration: none; font-style: normal; padding: 0.2rem 0; font-size: 0.92rem; }
 .footer-cols a:hover { color: var(--gold-soft); }
 .footer-legal { font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; color: #857d73; }
-.float-book { position: fixed; right: 20px; bottom: 20px; z-index: 40; background: var(--ink); color: #fff; text-decoration: none; font-size: 0.66rem; letter-spacing: 0.24em; text-transform: uppercase; padding: 1rem 1.4rem; box-shadow: 0 16px 40px -16px rgba(0, 0, 0, 0.5); transition: background 0.3s; }
-.float-book:hover { background: var(--gold); }
 
 /* Treatment page */
 .t-hero { padding: 1.5rem var(--gut) clamp(60px, 8vw, 110px); max-width: 1480px; margin: 0 auto; }
@@ -270,6 +268,17 @@ h1 em, h2 em, h3 em { font-style: italic; color: var(--gold); }
 .drawer-social a { border: 0 !important; font-family: var(--sans) !important; }
 @media (max-width: 960px) { .footer-social { margin-left: 0; } }
 
+/* Instagram DM booking */
+.dm-btn .ig { width: 17px; height: 17px; flex: none; }
+.btn.ig { background: var(--blush); color: var(--ink); }
+.btn.ig:hover { background: var(--ink); color: #fff; }
+.float-book { position: fixed; right: 20px; bottom: 20px; z-index: 40; display: flex; gap: 8px; box-shadow: 0 16px 40px -16px rgba(0, 0, 0, 0.5); }
+.float-book a { display: inline-flex; align-items: center; gap: 0.5rem; text-decoration: none; font-size: 0.66rem; letter-spacing: 0.24em; text-transform: uppercase; padding: 1rem 1.4rem; transition: background 0.3s; }
+.float-form { background: var(--ink); color: #fff; }
+.float-form:hover { background: var(--gold); }
+.float-dm { background: var(--blush); color: var(--ink); }
+.float-dm:hover { background: var(--blush-deep); color: #fff; }
+
 /* Mobile */
 @media (max-width: 960px) {
   .topbar span:first-child { display: none; }
@@ -303,7 +312,8 @@ h1 em, h2 em, h3 em { font-style: italic; color: var(--gold); }
   .form { grid-template-columns: 1fr; }
   .cta-frame { clip-path: none; }
   .versus { overflow-x: auto; }
-  .float-book { left: 16px; right: 16px; bottom: 16px; text-align: center; }
+  .float-book { left: 12px; right: 12px; bottom: 12px; }
+  .float-book a { flex: 1; justify-content: center; padding: 1rem 0.6rem; letter-spacing: 0.14em; }
   .footer { padding-bottom: 5rem; }
 }
 @media (prefers-reduced-motion: reduce) {

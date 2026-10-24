@@ -2,7 +2,7 @@
 import { useState } from "react";
 import { enquiryOptions, salon } from "./site";
 
-export default function EnquiryForm({ preset }) {
+export default function EnquiryForm({ preset, time }) {
   const [state, setState] = useState("idle");
   async function submit(e) {
     e.preventDefault();
@@ -19,7 +19,7 @@ export default function EnquiryForm({ preset }) {
       </div>
     );
   return (
-    <form className="form" onSubmit={submit}>
+    <form className="form" id="form" onSubmit={submit}>
       <label>Name *<input name="name" required autoComplete="name" /></label>
       <label>Email *<input name="email" type="email" required autoComplete="email" /></label>
       <label>Phone<input name="phone" type="tel" autoComplete="tel" /></label>
@@ -30,7 +30,7 @@ export default function EnquiryForm({ preset }) {
       </label>
       <label>Preferred date<input name="date" type="date" /></label>
       <label>Preferred time
-        <select name="time" defaultValue="Morning"><option>Morning</option><option>Afternoon</option></select>
+        <select name="time" defaultValue={time === "Afternoon" ? "Afternoon" : "Morning"}><option>Morning</option><option>Afternoon</option></select>
       </label>
       <label className="wide">Comments<textarea name="comments" rows="4" /></label>
       <p className="wide small">By sending this form you agree we may contact you about your enquiry. See our privacy policy.</p>

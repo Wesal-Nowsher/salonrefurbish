@@ -2,6 +2,7 @@ import Link from "next/link";
 import { salon, href, treatments, fullAddress } from "./site";
 import Nav from "./Nav";
 import Social from "./Social";
+import DmButton from "./DmButton";
 
 // The scalloped badge outline from the logo, reused as the site's frame shape.
 export function BadgeDefs() {
@@ -60,7 +61,10 @@ export function Shell({ children }) {
       <Nav />
       <main id="main">{children}</main>
       <Footer />
-      <a href={href("/contact")} className="float-book">Book a consultation</a>
+      <div className="float-book">
+        <DmButton className="float-dm" />
+        <a href={href("/contact#form")} className="float-form">Book a consultation</a>
+      </div>
     </>
   );
 }
@@ -121,9 +125,10 @@ export function Cta({ title = "Your secret starts with a conversation." }) {
       <div className="cta-frame">
         <Rose />
         <h2>{title}</h2>
-        <p>Free consultations for laser, skin and tattoo treatments. Nails, lashes and brows booked by phone or Instagram.</p>
+        <p>Free consultations for laser, skin and tattoo treatments. Nails, lashes and brows: send the form, or DM us on Instagram for the quickest reply.</p>
         <div className="btns center">
-          <Link href={href("/contact")} className="btn gold">Book a consultation</Link>
+          <Link href={href("/contact#form")} className="btn gold">Book a consultation</Link>
+          <DmButton className="btn ig" />
           <a href={`tel:${salon.phone}`} className="btn line">Call {salon.phoneDisplay}</a>
         </div>
       </div>

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import DmButton from "@/components/secrets/DmButton";
 import Collection from "@/components/secrets/Collection";
 import { Shell, Photo, Rose, Kicker, FaqList, Cta } from "@/components/secrets/ui";
 import { JsonLd, businessSchema, faqSchema } from "@/components/secrets/schema";
@@ -25,8 +26,8 @@ export default function Home() {
             Main Street, a short drive from Hexham and Hadrian&apos;s Wall.
           </p>
           <div className="btns">
-            <Link href={href("/contact")} className="btn gold">Book a consultation</Link>
-            <Link href={href("/treatments/laser-hair-removal")} className="btn line">Discover the laser</Link>
+            <Link href={href("/contact#form")} className="btn gold">Book a consultation</Link>
+            <DmButton className="btn ig" />
           </div>
         </div>
         <div className="hero-art">
@@ -119,9 +120,10 @@ export default function Home() {
       <section className="gram">
         <div className="gram-head">
           <p className="gram-quote">&ldquo;Maximum fluff, <em>zero apologies.</em>&rdquo;</p>
-          <p>{salon.instagramStats.posts} posts of fresh sets, lifts and glow-ups. New appointments are posted every week.</p>
+          <p>{salon.instagramStats.posts} posts of fresh sets, lifts and glow-ups. New appointments are posted every week, and a DM is the quickest way to grab one.</p>
           <div className="btns center">
-            <a href={salon.instagram} className="btn gold" target="_blank" rel="noopener">Instagram {salon.instagramHandle}</a>
+            <DmButton className="btn ig" />
+            <a href={salon.instagram} className="btn line" target="_blank" rel="noopener">Instagram {salon.instagramHandle}</a>
             <a href={salon.facebook} className="btn line" target="_blank" rel="noopener">Facebook: Secrets Salon Ltd</a>
           </div>
         </div>
