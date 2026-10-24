@@ -2,7 +2,51 @@
 
 17 images. Generate each one, then save it as `.webp` with the exact file name shown, in `public/images/secrets-salon/`.
 
-## How to get realistic results
+## One-shot option: all images in one go, delivered as a ZIP
+
+Paste everything from "START" to "END" into ChatGPT as one message. If it stops partway (ChatGPT often makes a few images per reply), just reply "continue" until all 17 are done, then "now make the ZIP".
+
+```
+START
+
+You are producing a set of 17 photographs for a luxury beauty salon website. Work through the list below in order and generate every image. Do not skip any, do not combine images, do not ask me questions. If you run out of room in a reply, stop after a finished image and wait for me to say "continue".
+
+HOUSE STYLE FOR EVERY IMAGE:
+Ultra-realistic editorial beauty photograph, indistinguishable from a real photo shot on a full-frame camera (Canon EOS R5, 85mm f/1.8 or 100mm macro lens), natural window light with soft shadows, shallow depth of field, subtle film grain. Real skin texture with visible pores, fine lines and tiny imperfections; natural cuticles and nail edges; no airbrushing, no plastic or waxy look, no CGI, no illustration. Palette: warm porcelain white, soft blush pink, muted antique gold, charcoal grey. Calm, luxurious, private boutique atmosphere. No text, no logos, no brand names, no watermarks. Anatomically correct hands with exactly five fingers.
+
+WHEN ALL 17 ARE DONE:
+Use Python to convert each image to WebP (quality 82) at the size given, centre-cropped to the exact aspect ratio, named exactly as listed (except og.jpg, which stays JPG). Put them all in one folder named secrets-salon, zip it as secrets-salon-images.zip and give me the download link.
+
+IMAGES (file name | size | description):
+
+1. hero.webp | 1200x1500 (4:5) | Close-up of a woman's elegant hand resting on a cream linen cloth beside a single pale pink garden rose, short almond nails in glossy sheer blush-pink gel with one thin antique-gold accent line, soft morning window light from the left, a delicate thin gold ring, porcelain-white background softly out of focus.
+2. nails.webp | 900x1200 (3:4) | Macro of two hands with medium almond nails, nude base with hand-painted gold foil flakes and tiny white daisies, glossy gel finish, fingertips on white marble with a few blush rose petals.
+3. lashes.webp | 900x1500 (3:5) | Extreme close-up of a woman with eyes gently closed, naturally lifted and tinted lashes after a lash lift, softly laminated brows, minimal makeup, blush background blur.
+4. t-laser-hair-removal.webp | 1000x1250 (4:5) | Therapist in a charcoal tunic and nitrile gloves performing diode laser hair removal on a client's lower leg, client relaxed on a treatment bed with white linen, sleek white unbranded handpiece, bright calm modern room, blush towel nearby.
+5. t-nails.webp | 1000x1250 (4:5) | Over-the-shoulder view of a nail technician applying glossy gel polish to a client's hand at a white manicure desk, row of polish bottles in nude, blush, burgundy and gold, small brass lamp.
+6. t-lashes-and-brows.webp | 1000x1250 (4:5) | Lash technician performing a lash lift on a client lying on a treatment bed, eyes closed, cream headband, gloved hands with a fine applicator, warm diffused light.
+7. t-facials-and-skin.webp | 1000x1250 (4:5) | Woman with clear, slightly dewy skin receiving a facial, eyes closed, hair in a white towel, gloved therapist holding a small unbranded white device near her cheek, faint freckles.
+8. t-tattoo-removal.webp | 1000x1250 (4:5) | Close-up of a woman's inner forearm with a small partially faded fine-line black tattoo, skin slightly pink, gloved therapist's hand nearby, clean white treatment room.
+9. t-thread-veins-and-skin-tags.webp | 1000x1250 (4:5) | Woman's face in soft profile while a gloved therapist holds a slim unbranded pen-shaped precision device near her cheek, natural skin with subtle redness.
+10. t-waxing.webp | 1000x1250 (4:5) | Still life of a waxing station: warmer of golden-amber wax, wooden spatulas in a glass jar, folded white towels, eucalyptus sprig, on a blush pink trolley.
+11. t-makeup.webp | 1000x1250 (4:5) | Makeup artist applying soft-glam makeup to a smiling woman in her early thirties in a salon chair, rosy lips, champagne eyeshadow, warm mirror bulbs blurred behind.
+12. gram-1.webp | 800x800 (1:1) | Overhead: hand with short square glossy French tips with a thin gold line, holding a cappuccino in a white cup on marble.
+13. gram-2.webp | 800x800 (1:1) | Almond nails in a mismatched pastel set (lilac, mint, butter yellow, blush, baby blue), hand on a soft pink knit sweater.
+14. gram-3.webp | 800x800 (1:1) | Macro of glossy pearl chrome nails catching window light, fingers curled against cream silk.
+15. gram-4.webp | 800x800 (1:1) | Close-up of one open eye after a lash lift and tint, curled defined lashes, laminated brow, natural skin.
+16. gram-5.webp | 800x800 (1:1) | Burgundy glossy almond gel nails, hand holding a small bouquet of blush peonies, warm light.
+17. og.jpg | 1200x630 (1.91:1) | Still life of blush peonies, a blank gold-rimmed appointment card and a small bottle of nude polish on porcelain marble, large empty space on the left.
+
+END
+```
+
+When you have the ZIP, unzip it and copy the files into `public/images/secrets-salon/` (or send the ZIP to Claude to add them).
+
+---
+
+## One at a time (best quality)
+
+### How to get realistic results
 
 1. **Paste the house style first.** At the start of a new ChatGPT chat, paste the "House style" block below once and say: "Use this style for every image I ask for in this chat."
 2. **One image per message.** Paste a single prompt, then the next one in a new message.
